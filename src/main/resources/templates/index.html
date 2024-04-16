@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #666;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #888;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="#aeroports">Aéroports</a></li>
+        <li><a href="#bagages">Bagages</a></li>
+        <li><a href="#vols">Vols</a></li>
+        <li><a href="#billets">Billets</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#reservations">Réservations</a></li>
+    </ul>
+</nav>
+<section id="aeroports">
+    <h2>Aéroports</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Ville</th>
+            <th>Pays</th>
+            <th>Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Contenu des aéroports -->
+        </tbody>
+    </table>
+</section>
+<section id="bagages">
+    <h2>Bagages</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Poids (kg)</th>
+            <th>Dimension</th>
+            <th>Propriétaire</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Contenu des bagages -->
+        </tbody>
+    </table>
+</section>
+<section id="vols">
+    <h2>Vols</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Destination</th>
+            <th>Date de départ</th>
+            <th>Heure de départ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Contenu des vols -->
+        </tbody>
+    </table>
+</section>
+<section id="billets">
+    <h2>Billets</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Client</th>
+            <th>Vol</th>
+            <th>Prix</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Contenu des billets -->
+        </tbody>
+    </table>
+</section>
+<section id="clients">
+    <h2>Clients</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Contenu des clients -->
+        </tbody>
+    </table>
+</section>
+<section id="reservations">
+    <h2>Réservations</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Client</th>
+            <th>Vol</th>
+            <th>Statut</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Contenu des réservations -->
+        </tbody>
+    </table>
+</section>
+</body>
+</html>
