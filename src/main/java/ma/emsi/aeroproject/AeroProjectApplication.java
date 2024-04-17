@@ -26,6 +26,11 @@ public class AeroProjectApplication {
             aeroport1.setVille("Casablanca");
             aeroportManager.addAeroport(aeroport1);
 
+            Aeroport aeroport2 = new Aeroport();
+            aeroport2.setNom("Aéroport test");
+            aeroport2.setVille("Rabat");
+            aeroportManager.addAeroport(aeroport2);
+
             Client c1 = new Client();
             c1.setNomComp("Yasmine Oubnaali");
             c1.setEmail("yasmineOub@gmail.com");

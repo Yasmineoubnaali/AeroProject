@@ -2,7 +2,7 @@ package ma.emsi.aeroproject.dao.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-;
+
 
 
 @Getter

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditer Aéroport</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Éditer un Aéroport</h1>
+    <form action="/aeroports/edit/{id}" method="post">
+        <input type="hidden" name="_method" value="put">
+        <input type="hidden" id="id" name="id" th:value="${aeroport.id}">
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom de l'aéroport</label>
+            <input type="text" class="form-control" id="nom" name="nom" th:value="${aeroport.nom}" required>
+        </div>
+        <div class="mb-3">
+            <label for="ville" class="form-label">Ville</label>
+            <input type="text" class="form-control" id="ville" name="ville" th:value="${aeroport.ville}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+</div>
+</body>
+</html>

@@ -9,9 +9,9 @@ public interface AeroportManager {
 
     Aeroport updateAeroport(Aeroport aeroport);
 
-    boolean deleteAeroport(Aeroport aeroport);
+    public boolean deleteAeroport(Aeroport aeroport);
 
-    boolean deleteAeroportByID(Integer id);
+    public boolean deleteAeroportByID(Integer id);
 
     Aeroport getAeroportById(Integer id);
 

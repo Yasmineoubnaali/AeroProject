@@ -2,6 +2,7 @@ package ma.emsi.aeroproject.web;
 
 import ma.emsi.aeroproject.dao.entities.Aeroport;
 import ma.emsi.aeroproject.service.AeroportManager;
+import ma.emsi.aeroproject.service.AeroportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,52 +11,49 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/aeroports")
 public class AeroportController {
 
     @Autowired
-    private AeroportManager aeroportManager;
+    private AeroportService aeroportService;
 
-    @PostMapping("/ajouterAeroport")
-    public String ajouterAeroport(Model model,
-                                  @RequestParam(name = "nom") String nom,
-                                  @RequestParam(name = "ville") String ville) {
-        Aeroport aeroport = new Aeroport();
-        aeroport.setNom(nom);
-        aeroport.setVille(ville);
-        aeroportManager.addAeroport(aeroport);
-        return "redirect:/index";
+    @GetMapping
+    public String getAllAeroports(Model model) {
+        List<Aeroport> aeroports = aeroportService.getAllAeroports();
+        model.addAttribute("aeroports", aeroports);
+        return "aeroports";
     }
 
-    @GetMapping("/ajouterAeroportPage")
-    public String ajouterAeroport(Model model) {
+    @GetMapping("/ajouter")
+    public String showAddAeroportForm(Model model) {
         model.addAttribute("aeroport", new Aeroport());
-        return "ajouterAeroport";
+        return "ajouter";
     }
 
-    @GetMapping("/index")
-    public String listAeroports(Model model) {
-        List<Aeroport> aeroports = aeroportManager.getAllAeroports();
-        model.addAttribute("listAeroports", aeroports);
-        return "index";
+    @PostMapping("/ajouter")
+    public String addAeroport(@ModelAttribute("aeroport") Aeroport aeroport) {
+        aeroportService.addAeroport(aeroport);
+        return "redirect:/aeroports";
     }
 
-    @GetMapping("/deleteAeroport")
-    public String deleteAeroport(Model model, @RequestParam(name = "id") Integer id) {
-        if (aeroportManager.deleteAeroportByID(id)) {
-            return "redirect:/index";
-        } else {
-            return "error";
-        }
+    @GetMapping("/edit/{id}")
+    public String showEditAeroportForm(@PathVariable Integer id, Model model) {
+        Aeroport aeroport = aeroportService.getAeroportById(id);
+        model.addAttribute("aeroport", aeroport);
+        return "editer";
     }
 
-    @GetMapping("/editAeroport")
-    public String editAeroport(Model model, @RequestParam(name = "id") Integer id) {
-        Aeroport aeroport = aeroportManager.getAeroportById(id);
-        if (aeroport != null) {
-            model.addAttribute("aeroportToBeUpdated", aeroport);
-            return "updateAeroport";
-        } else {
-            return "error";
-        }
+
+    @PostMapping("/edit/{id}")
+    public String editAeroport(@PathVariable Integer id, @ModelAttribute("aeroport") Aeroport aeroport) {
+        aeroport.setId(id);
+        aeroportService.updateAeroport(aeroport);
+        return "aeroports";
     }
+
+
+
+
+
+
 }

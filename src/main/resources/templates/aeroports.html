@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Liste des Aéroports</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<div class="p-3 m-2">
+    <div class="card">
+        <div class="card-header">
+            Liste des Aéroports |
+            <a href="ajouteraeroport">Ajouter Aéroport</a>
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-center mb-3">
+                <form method="get" th:action="@{/aeroports}">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" th:value="${keyword}"
+                               placeholder="Search..."/>
+                        <button class="btn btn-primary" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Reference</th>
+                        <th>Nom</th>
+                        <th>Ville</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="aeroport : ${aeroports}">
+                        <td th:text="${aeroport.id}"></td>
+                        <td th:text="${aeroport.nom}"></td>
+                        <td th:text="${aeroport.ville}"></td>
+                        <td>
+                            <a th:href="@{'/aeroports/edit/' + ${aeroport.id}}" class="btn btn-primary btn-sm me-2">
+                                Modifier
+                            </a>
+                            <a th:href="@{'/aeroports/delete/' + ${aeroport.id}}" class="btn btn-danger btn-sm">
+                                Supprimer
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container">
+                <ul class="nav nav-pills">
+                    <li class="nav-item me-2" th:each="p, stat: ${pages}">
+                        <a th:class="${stat.index == currentPage} ? 'btn btn-primary' : 'btn btn-outline-primary'"
+                           class="btn btn-outline-primary"
+                           th:text="${p}"
+                           th:href="@{'/aeroports?page=' + ${p}}"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
