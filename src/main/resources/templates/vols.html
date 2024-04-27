@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Vols</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="webjars/bootstrap/5.1.3/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container mt-4">
@@ -54,6 +54,17 @@
         </tr>
         </tbody>
     </table>
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li class="nav-item me-2" th:each="p,stat:${pages}">
+                <a th:class="${stat.index == currentPage} ? 'btn btn-primary' : 'btn btn-outline-primary'"
+                   class="btn btn-outline-primary"
+                   th:text="${stat.index}"
+                   th:href="@{client(page=${stat.index})}">
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
 </body>
 </html>

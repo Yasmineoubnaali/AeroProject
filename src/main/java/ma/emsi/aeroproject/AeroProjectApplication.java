@@ -27,9 +27,29 @@ public class AeroProjectApplication {
             aeroportManager.addAeroport(aeroport1);
 
             Aeroport aeroport2 = new Aeroport();
-            aeroport2.setNom("Aéroport test");
-            aeroport2.setVille("Rabat");
+            aeroport2.setNom("Aéroport International de Luxembourg");
+            aeroport2.setVille("Luxembourg");
             aeroportManager.addAeroport(aeroport2);
+
+            Aeroport aeroport3 = new Aeroport();
+            aeroport3.setNom("Aéroport International Menara");
+            aeroport3.setVille("Marakech");
+            aeroportManager.addAeroport(aeroport3);
+
+            Aeroport aeroport4 = new Aeroport();
+            aeroport4.setNom("Aéroport de Londre");
+            aeroport4.setVille("London");
+            aeroportManager.addAeroport(aeroport4);
+
+            Aeroport aeroport5 = new Aeroport();
+            aeroport5.setNom("Aéroport International de Madrid");
+            aeroport5.setVille("Madrid");
+            aeroportManager.addAeroport(aeroport5);
+
+            Aeroport aeroport6 = new Aeroport();
+            aeroport6.setNom("Aéroport de Rabat");
+            aeroport6.setVille("Rabat");
+            aeroportManager.addAeroport(aeroport6);
 
             Client c1 = new Client();
             c1.setNomComp("Yasmine Oubnaali");
@@ -59,6 +79,20 @@ public class AeroProjectApplication {
             bagage.setDescription("Valise noire");
             bagage.setClient(c1);
             bagageManager.addBagage(bagage);
+
+            Bagage bagage1 = new Bagage();
+            bagage1.setPoids(28.00);
+            bagage1.setEtiquette("ABC225");
+            bagage1.setDescription("Valise turquoise");
+            bagage1.setClient(c1);
+            bagageManager.addBagage(bagage1);
+
+            Bagage bagage2 = new Bagage();
+            bagage2.setPoids(12.99);
+            bagage2.setEtiquette("GHT857");
+            bagage2.setDescription("Valise blanche");
+            bagage2.setClient(c1);
+            bagageManager.addBagage(bagage2);
 
             Reservation reservation = new Reservation();
             reservation.setNomPassager("Yasmine");
